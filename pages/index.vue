@@ -24,7 +24,6 @@ const QUERY = `
 `;
 
 const { data, error } = await useGraphqlQuery({ query: QUERY });
-console.log(error);
 </script>
 
 <template>
