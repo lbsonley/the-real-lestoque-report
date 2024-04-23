@@ -1,6 +1,7 @@
 export default (options: any) => {
   const { query, variables = {} } = options;
   const runtimeConfig = useRuntimeConfig();
+  console.log(runtimeConfig);
   const key = JSON.stringify(options);
 
   return useFetch("https://graphql.datocms.com", {
