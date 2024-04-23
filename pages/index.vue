@@ -5,24 +5,44 @@ definePageMeta({
 
 const QUERY = `
   {
-    allWeeklyChartBooks(orderBy: _firstPublishedAt_DESC) {
+    allWeeklyChartBooks(first: 3, orderBy: _createdAt_DESC) {
       title
       date
       slug
+    }
+    allTrades(first: "3", orderBy: _createdAt_DESC, filter: { tradeStatus: { eq: "Open" }}) {
+      slug
+      title
+      direction
+      date
+      ticker {
+        name
+        ticker
+      }
     }
   }
 `;
 
 const { data, error } = await useGraphqlQuery({ query: QUERY });
+console.log(error);
 </script>
 
 <template>
   <p v-if="error">{{ error }}</p>
   <div v-else>
-    <ul class="chart-book--list">
+    <h2>Chart Books</h2>
+    <ul>
       <li v-for="chartbook of data.allWeeklyChartBooks">
-        <a class="chart-book--link" :href="`chartbook/${chartbook.slug}`">
+        <a class="chart-book--link" :href="`chartbooks/${chartbook.slug}`">
           {{ chartbook.title }} - {{ chartbook.date }}
+        </a>
+      </li>
+    </ul>
+    <h2>Trades</h2>
+    <ul>
+      <li v-for="trade of data.allTrades"">
+        <a :href="`trades/${trade.slug}`">
+          {{ trade.direction }} {{ trade.ticker.name }} - {{ trade.date }}
         </a>
       </li>
     </ul>

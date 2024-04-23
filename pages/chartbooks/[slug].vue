@@ -34,8 +34,7 @@ const {
 <template>
   <p v-if="error">{{ error }}</p>
   <div v-else>
-    <h2>Lestoque Weekly Chart Book</h2>
-    <p>{{ date }}</p>
+    <h2>Lestoque Weekly Chart Book - {{ date }}</h2>
     <section v-for="chart of charts">
       <h3>
         {{ chart.ticker.name }} ({{ chart.ticker.ticker }}): {{ chart.period }}
