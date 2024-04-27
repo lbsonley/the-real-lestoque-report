@@ -14,7 +14,6 @@ export default (options: any) => {
       variables,
     },
     transform: ({ data, errors }) => {
-      console.log(errors);
       if (errors) throw new Error(errors[0].message);
 
       return data;

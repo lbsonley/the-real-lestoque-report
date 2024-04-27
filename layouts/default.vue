@@ -1,9 +1,5 @@
 <template>
-  <header>
-    <nav>
-      <p>Header placeholder</p>
-    </nav>
-  </header>
+  <Header />
   <main class="content-wrapper">
     <slot />
   </main>
