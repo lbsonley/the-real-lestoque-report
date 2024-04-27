@@ -1,19 +1,20 @@
 @use "sass:map";
+@use "~/assets/css/variables";
 
 $spacings-mobile: (
-  "s": 16px,
-  "m": 32px,
-  "l": 48px,
+  "s": variables.$space-16,
+  "m": variables.$space-32,
+  "l": variables.$space-48,
 );
 $spacings-tablet: (
-  "s": 32px,
-  "m": 48px,
-  "l": 72px,
+  "s": variables.$space-32,
+  "m": variables.$space-48,
+  "l": variables.$space-72,
 );
 $spacings-desktop: (
-  "s": 48px,
-  "m": 72px,
-  "l": 128px,
+  "s": variables.$space-48,
+  "m": variables.$space-72,
+  "l": variables.$space-128,
 );
 
 @mixin vertical-rhythm($size: l) {

@@ -118,19 +118,10 @@ const {
         <div class="v-rhythm-s">
           <img :src="chart.chartUrl" />
         </div>
-        <div class="text-width v-rhythm-s">
+        <div class="content-width-narrow v-rhythm-s">
           <p>{{ chart.analysis }}</p>
         </div>
       </div>
     </section>
   </div>
 </template>
-
-<style lang="scss">
-.chart-analysis {
-  @include vertical-rhythm;
-}
-.chart-analysis__content {
-  @include text-width;
-}
-</style>

@@ -1,15 +1,29 @@
+@use "~/assets/css/variables";
+@use "~/assets/css/mixins";
+
 .v-rhythm-s {
-  @include vertical-rhythm($size: "s");
+  @include mixins.vertical-rhythm($size: "s");
 }
 
 .v-rhythm-m {
-  @include vertical-rhythm($size: "m");
+  @include mixins.vertical-rhythm($size: "m");
 }
 
 .v-rhythm-l {
-  @include vertical-rhythm($size: "l");
+  @include mixins.vertical-rhythm($size: "l");
 }
 
-.text-width {
-  @include text-width;
+.content-width-wide {
+  max-width: variables.$max-content-width-wide;
+  margin: 0 auto;
+}
+
+.content-width-medium {
+  max-width: variables.$max-content-width-medium;
+  margin: 0 auto;
+}
+
+.content-width-narrow {
+  max-width: variables.$max-content-width-narrow;
+  margin: 0 auto;
 }
