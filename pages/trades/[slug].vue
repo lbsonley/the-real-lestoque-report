@@ -47,11 +47,12 @@ const {
 <template>
   <p v-if="error">{{ error }}</p>
   <div v-else>
-    <h2>{{ direction }} {{ ticker.name }} - {{ date }}</h2>
-    <h3>Entry Info</h3>
-    <section v-for="(layer, index) of layers">
-      <h4>Layer {{ index + 1 }}</h4>
-      <table>
+    <div class="v-rhythm-m">
+      <h2>{{ direction }} {{ ticker.name }} - {{ date }}</h2>
+    </div>
+    <section class="v-rhythm-l" v-for="(layer, index) of layers">
+      <h3>Layer {{ index + 1 }}</h3>
+      <table class="v-rhythm-m">
         <tr>
           <td>Trade Setup</td>
           <td>{{ layer.tradeSetup.title }}</td>
@@ -108,14 +109,18 @@ const {
           </td>
         </tr>
       </table>
-      <div v-if="layer.notes">
+      <div class="v-rhythm-m" v-if="layer.notes">
         <h4>Notes</h4>
         <p>{{ layer.notes }}</p>
       </div>
-      <div v-for="chart of layer.charts">
+      <div class="v-rhythm-m" v-for="chart of layer.charts">
         <h4>{{ ticker.name }}: {{ chart.period }}</h4>
-        <img :src="chart.chartUrl" />
-        <p>{{ chart.analysis }}</p>
+        <div class="v-rhythm-s">
+          <img :src="chart.chartUrl" />
+        </div>
+        <div class="text-width v-rhythm-s">
+          <p>{{ chart.analysis }}</p>
+        </div>
       </div>
     </section>
   </div>
@@ -124,5 +129,8 @@ const {
 <style lang="scss">
 .chart-analysis {
   @include vertical-rhythm;
+}
+.chart-analysis__content {
+  @include text-width;
 }
 </style>

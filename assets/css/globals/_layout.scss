@@ -1,0 +1,15 @@
+.v-rhythm-s {
+  @include vertical-rhythm($size: "s");
+}
+
+.v-rhythm-m {
+  @include vertical-rhythm($size: "m");
+}
+
+.v-rhythm-l {
+  @include vertical-rhythm($size: "l");
+}
+
+.text-width {
+  @include text-width;
+}

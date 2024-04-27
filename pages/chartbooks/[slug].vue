@@ -39,16 +39,12 @@ const {
       <h3>
         {{ chart.ticker.name }} ({{ chart.ticker.ticker }}): {{ chart.period }}
       </h3>
-      <div class="chart-analysis">
+      <div>
         <img :src="chart.chartUrl" />
-        <p>{{ chart.analysis }}</p>
+        <div>
+          <p>{{ chart.analysis }}</p>
+        </div>
       </div>
     </section>
   </div>
 </template>
-
-<style lang="scss">
-.chart-analysis {
-  @include vertical-rhythm;
-}
-</style>

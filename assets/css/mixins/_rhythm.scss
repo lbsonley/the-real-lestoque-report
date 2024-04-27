@@ -1,0 +1,29 @@
+@use "sass:map";
+
+$spacings-mobile: (
+  "s": 16px,
+  "m": 32px,
+  "l": 48px,
+);
+$spacings-tablet: (
+  "s": 32px,
+  "m": 48px,
+  "l": 72px,
+);
+$spacings-desktop: (
+  "s": 48px,
+  "m": 72px,
+  "l": 128px,
+);
+
+@mixin vertical-rhythm($size: l) {
+  margin-bottom: map.get($spacings-mobile, $size);
+
+  @media screen and (width > 680px) {
+    margin-bottom: map.get($spacings-tablet, $size);
+  }
+
+  @media screen and (width > 1200px) {
+    margin-bottom: map.get($spacings-desktop, $size);
+  }
+}
