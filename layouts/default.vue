@@ -6,12 +6,14 @@
 </template>
 
 <style lang="scss">
+@use "~/assets/css/variables";
+
 .content-wrapper {
-  max-width: 960px;
-  padding: 0 24px;
+  max-width: variables.$max-content-width-medium;
+  padding: 0 variables.$space-16;
   margin: 0 auto;
 
-  @media screen and (width > 1016px) {
+  @include lg-up {
     padding: 0;
   }
 }

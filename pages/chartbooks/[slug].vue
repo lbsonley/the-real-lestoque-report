@@ -33,15 +33,17 @@ const {
 
 <template>
   <p v-if="error">{{ error }}</p>
-  <div v-else>
+  <div v-else class="v-rhythm-l">
     <h2>Lestoque Weekly Chart Book - {{ date }}</h2>
-    <section v-for="chart of charts">
+    <section v-for="chart of charts" class="v-rhythm-l">
       <h3>
         {{ chart.ticker.name }} ({{ chart.ticker.ticker }}): {{ chart.period }}
       </h3>
-      <div>
-        <img :src="chart.chartUrl" />
-        <div>
+      <div class="v-rhythm-m">
+        <div class="v-rhythm-s">
+          <img :src="chart.chartUrl" />
+        </div>
+        <div class="content-width-narrow v-rhythm-s">
           <p>{{ chart.analysis }}</p>
         </div>
       </div>
