@@ -6,19 +6,19 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  name: "money-bag";
+  name: 'money-bag';
   width: string;
-}>();
+}>()
 
-const MoneyBag = defineAsyncComponent(() => import("./icons/MoneyBag.vue"));
+const MoneyBag = defineAsyncComponent(() => import('./icons/MoneyBag.vue'))
 
-const { name, width } = toRefs(props);
+const { name, width } = toRefs(props)
 
 const iconMap = {
-  "money-bag": MoneyBag,
-};
+  'money-bag': MoneyBag
+}
 
-const IconComponent = iconMap[name.value];
+const IconComponent = iconMap[name.value]
 </script>
 
 <style lang="scss" is:global>

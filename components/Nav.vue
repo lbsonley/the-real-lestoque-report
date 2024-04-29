@@ -1,6 +1,8 @@
 <template>
   <nav ref="nav" class="nav nav--is-closed">
-    <button ref="navTrigger" class="nav__trigger">NAV</button>
+    <button ref="navTrigger" class="nav__trigger">
+      NAV
+    </button>
     <div data-nav="flyout" class="nav__flyout">
       <ul class="nav__list">
         <li class="nav__list-item">
@@ -15,17 +17,17 @@
 </template>
 
 <script setup lang="ts">
-const nav = ref<HTMLElement | null>(null);
-const navTrigger = ref<HTMLElement | null>(null);
+const nav = ref<HTMLElement | null>(null)
+const navTrigger = ref<HTMLElement | null>(null)
 
 const handleToggleNav = () => {
-  nav.value!.classList.toggle("nav--is-closed");
-  nav.value!.classList.toggle("nav--is-open");
-};
+  nav.value!.classList.toggle('nav--is-closed')
+  nav.value!.classList.toggle('nav--is-open')
+}
 
 onMounted(() => {
-  navTrigger.value!.addEventListener("click", handleToggleNav);
-});
+  navTrigger.value!.addEventListener('click', handleToggleNav)
+})
 </script>
 
 <style lang="scss">

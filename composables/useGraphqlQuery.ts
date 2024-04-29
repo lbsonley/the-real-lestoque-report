@@ -1,22 +1,22 @@
 export default (options: any) => {
-  const { query, variables = {} } = options;
-  const runtimeConfig = useRuntimeConfig();
-  const key = JSON.stringify(options);
+  const { query, variables = {} } = options
+  const runtimeConfig = useRuntimeConfig()
+  const key = JSON.stringify(options)
 
-  return useFetch("https://graphql.datocms.com", {
+  return useFetch('https://graphql.datocms.com', {
     key,
-    method: "POST",
+    method: 'POST',
     headers: {
-      Authorization: `Bearer ${runtimeConfig.public.datoCmsToken}`,
+      Authorization: `Bearer ${runtimeConfig.public.datoCmsToken}`
     },
     body: {
       query,
-      variables,
+      variables
     },
     transform: ({ data, errors }) => {
-      if (errors) throw new Error(errors[0].message);
+      if (errors) { throw new Error(errors[0].message) }
 
-      return data;
-    },
-  });
-};
+      return data
+    }
+  })
+}

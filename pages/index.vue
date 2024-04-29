@@ -1,7 +1,7 @@
 <script setup>
 definePageMeta({
-  layout: "default",
-});
+  layout: 'default'
+})
 
 const QUERY = `
   {
@@ -21,17 +21,19 @@ const QUERY = `
       }
     }
   }
-`;
+`
 
-const { data, error } = await useGraphqlQuery({ query: QUERY });
+const { data, error } = await useGraphqlQuery({ query: QUERY })
 </script>
 
 <template>
-  <p v-if="error">{{ error }}</p>
+  <p v-if="error">
+    {{ error }}
+  </p>
   <div v-else>
     <h2>Chart Books</h2>
     <ul>
-      <li v-for="chartbook of data.allWeeklyChartBooks">
+      <li v-for="chartbook of data.allWeeklyChartBooks" :key="chartbook.slug">
         <a class="chart-book--link" :href="`chartbooks/${chartbook.slug}`">
           {{ chartbook.title }} - {{ chartbook.date }}
         </a>
@@ -39,7 +41,7 @@ const { data, error } = await useGraphqlQuery({ query: QUERY });
     </ul>
     <h2>Trades</h2>
     <ul>
-      <li v-for="trade of data.allTrades"">
+      <li v-for="trade of data.allTrades" :key="trade.slug">
         <a :href="`trades/${trade.slug}`">
           {{ trade.direction }} {{ trade.ticker.name }} - {{ trade.date }}
         </a>

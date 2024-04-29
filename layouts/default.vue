@@ -1,8 +1,10 @@
 <template>
-  <Header />
-  <main class="content-wrapper">
-    <slot />
-  </main>
+  <div>
+    <Header />
+    <main class="content-wrapper">
+      <slot />
+    </main>
+  </div>
 </template>
 
 <style lang="scss">

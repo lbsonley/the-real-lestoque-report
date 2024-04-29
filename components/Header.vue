@@ -5,7 +5,9 @@
         <a class="logo-link" href="/">
           <Icon name="money-bag" width="60" />
         </a>
-        <h1 class="site-title">Lestoque Report</h1>
+        <h1 class="site-title">
+          Lestoque Report
+        </h1>
       </div>
       <Nav />
     </div>
@@ -13,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import MoneyBag from "./icons/MoneyBag.vue";
+import MoneyBag from './icons/MoneyBag.vue'
 </script>
 
 <style lang="scss">
