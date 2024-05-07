@@ -17,6 +17,30 @@ const QUERY = `
           analysis(markdown: false)
         }
       }
+      assetAnalysis {
+        links {
+          ticker
+        }
+        blocks {
+          ... on SectionTitleRecord {
+            title
+          }
+          ... on ChartAnalysisRecord {
+            id
+            date
+            ticker {
+              ticker
+            }
+            period
+            hasTradeSetup
+            pattern {
+              title
+            }
+            chartUrl
+            analysis
+          }
+        }
+      }
     }
   }
 `
@@ -27,8 +51,9 @@ const { data, error } = await useGraphqlQuery({
 })
 
 const {
-  weeklyChartBook: { date, charts }
+  weeklyChartBook: { date, charts, assetAnalysis }
 } = data.value
+console.log(assetAnalysis)
 </script>
 
 <template>

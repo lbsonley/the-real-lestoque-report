@@ -1,4 +1,12 @@
+@use "sass:map";
 @use "../variables";
+
+$grid-gap: (
+  "sm": variables.$space-12,
+  "md": variables.$space-16,
+  "lg": variables.$space-20,
+  "xl": variables.$space-24,
+);
 
 @mixin make-grid-classes() {
   @for $i from 1 through 12 {
@@ -12,6 +20,10 @@
       @for $i from 1 through 12 {
         .column-#{$bp-name}-#{$i} {
           flex-basis: calc(100% / 12 * $i);
+          padding-bottom: map.get($grid-gap, $bp-name);
+          &:not(:last-of-type) {
+            padding-right: map.get($grid-gap, $bp-name);
+          }
         }
       }
     }

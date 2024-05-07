@@ -6,7 +6,7 @@
     <div data-nav="flyout" class="nav__flyout">
       <ul class="nav__list">
         <li class="nav__list-item">
-          <a class="nav__link" href="/watchlists">Watchlists</a>
+          <a class="nav__link" href="/chartbooks">Chartbooks</a>
         </li>
         <li class="nav__list-item">
           <a class="nav__link" href="/trades">Trades</a>
@@ -35,11 +35,10 @@ onMounted(() => {
 
 .nav {
   position: relative;
-  z-index: 10;
 
   &.nav--is-closed {
     .nav__flyout {
-      transform: translateX(308px);
+      transform: translateY(-100vh);
       opacity: 0;
     }
   }
@@ -48,7 +47,7 @@ onMounted(() => {
     overflow: auto;
 
     .nav__flyout {
-      transform: translateX(-260px);
+      transform: translateY(0px);
       opacity: 1;
     }
   }
@@ -64,14 +63,14 @@ onMounted(() => {
 
 .nav__flyout {
   position: fixed;
-  top: 48px;
+  top: 120px;
   bottom: 0;
-  width: 300px;
-  max-height: calc(100vh - 40px);
+  left: 0;
+  width: 100vw;
+  max-height: calc(100vh - 120px);
   padding-bottom: 20px;
   overflow: scroll;
   transition: transform 300ms ease-out, opacity 300ms ease-out;
-  border: 1px solid #141414;
   background-color: #fefefe;
   will-change: transform, opacity;
 }
@@ -88,10 +87,10 @@ onMounted(() => {
 
 .nav__link {
   transition: color 300ms ease-out;
-  color: #141414;
+  color: variables.$color-black;
 
   &:hover {
-    color: #8f00ff;
+    color: variables.$color-purple-500;
   }
 }
 </style>

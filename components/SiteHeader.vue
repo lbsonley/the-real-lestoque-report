@@ -9,14 +9,10 @@
           Lestoque Report
         </h1>
       </div>
-      <Nav />
+      <SiteNav />
     </div>
   </header>
 </template>
-
-<script setup lang="ts">
-import MoneyBag from './icons/MoneyBag.vue'
-</script>
 
 <style lang="scss">
 @use "~/assets/css/variables";
@@ -43,6 +39,9 @@ import MoneyBag from './icons/MoneyBag.vue'
 
 .logo-link {
   color: variables.$color-white;
+  &:hover {
+    color: variables.$color-white;
+  }
 }
 
 .header__nav {

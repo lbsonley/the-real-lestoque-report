@@ -1,2 +1,12 @@
 @use "../mixins/grid";
 @include grid.make-grid-classes;
+
+.grid-container {
+  display: flex;
+  flex-flow: row wrap;
+  padding-left: 0;
+
+  li {
+    list-style: none;
+  }
+}

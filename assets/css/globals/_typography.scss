@@ -57,3 +57,12 @@ p {
 strong {
   font-weight: variables.$font-weight-bold;
 }
+
+a {
+  transition: color 300ms ease-out;
+  color: variables.$color-blue-500;
+
+  &:hover {
+    color: variables.$color-purple-500;
+  }
+}
