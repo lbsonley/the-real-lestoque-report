@@ -78,8 +78,8 @@ onMounted(() => {
 
 .nav__trigger {
   position: relative;
-  width: 50px;
-  height: 40px;
+  width: 40px;
+  height: 30px;
   border: none;
   background: transparent;
   color: variables.$color-text-inverted;
@@ -90,7 +90,7 @@ onMounted(() => {
   & span {
     display: block;
     position: absolute;
-    height: 7px;
+    height: 4px;
     width: 100%;
     background: variables.$color-text-inverted;
     border-radius: 9px;
@@ -105,11 +105,11 @@ onMounted(() => {
 
     &:nth-child(2),
     &:nth-child(3) {
-      top: 16px;
+      top: 13px;
     }
 
     &:nth-child(4) {
-      top: 30px;
+      top: 24px;
     }
   }
 }

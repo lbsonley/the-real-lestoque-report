@@ -29,7 +29,7 @@
   display: flex;
   flex: 1 0 auto;
   justify-content: space-between;
-  margin: 0 variables.$space-8;
+  margin: 0 variables.$space-16;
 }
 
 .header__brand {
