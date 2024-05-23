@@ -1,7 +1,10 @@
 <template>
   <nav ref="nav" class="nav nav--is-closed">
     <button ref="navTrigger" class="nav__trigger">
-      NAV
+      <span />
+      <span />
+      <span />
+      <span />
     </button>
     <div data-nav="flyout" class="nav__flyout">
       <ul class="nav__list">
@@ -38,8 +41,8 @@ onMounted(() => {
 
   &.nav--is-closed {
     .nav__flyout {
-      transform: translateY(-100vh);
-      opacity: 0;
+      transform: scale(0);
+      pointer-events: none;
     }
   }
 
@@ -47,32 +50,83 @@ onMounted(() => {
     overflow: auto;
 
     .nav__flyout {
-      transform: translateY(0px);
-      opacity: 1;
+      transform: scale(1);
+      pointer-events: all;
+    }
+
+    .nav__trigger span:nth-child(1) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+    }
+
+    .nav__trigger span:nth-child(2) {
+      transform: rotate(45deg);
+    }
+
+    .nav__trigger span:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+
+    .nav__trigger span:nth-child(4) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
     }
   }
 }
 
 .nav__trigger {
-  width: 40px;
+  position: relative;
+  width: 50px;
   height: 40px;
   border: none;
   background: transparent;
   color: variables.$color-text-inverted;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+
+  & span {
+    display: block;
+    position: absolute;
+    height: 7px;
+    width: 100%;
+    background: variables.$color-text-inverted;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 2px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 16px;
+    }
+
+    &:nth-child(4) {
+      top: 30px;
+    }
+  }
 }
 
 .nav__flyout {
   position: fixed;
   top: 120px;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
+  right: 0;
   max-height: calc(100vh - 120px);
-  padding-bottom: 20px;
+  min-width: 400px;
+  padding: 20px;
   overflow: scroll;
-  transition: transform 300ms ease-out, opacity 300ms ease-out;
-  background-color: #fefefe;
-  will-change: transform, opacity;
+  transition: transform 300ms ease-out;
+  transform-origin: 100vw 0;
+  background-color: variables.$color-blue-800;
+  will-change: transform;
+  z-index: 1;
 }
 
 .nav__list {
@@ -87,7 +141,8 @@ onMounted(() => {
 
 .nav__link {
   transition: color 300ms ease-out;
-  color: variables.$color-black;
+  color: variables.$color-text-inverted;
+  font-size: variables.$font-size-lead;
 
   &:hover {
     color: variables.$color-purple-500;
